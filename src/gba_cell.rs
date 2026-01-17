@@ -23,7 +23,10 @@ use core::{
   cell::UnsafeCell,
   fmt::Debug,
   mem::{align_of, size_of},
-  num::{NonZeroI16, NonZeroI32, NonZeroI8, NonZeroU16, NonZeroU32, NonZeroU8},
+  num::{
+    NonZeroI16, NonZeroI32, NonZeroI8, NonZeroU16, NonZeroU32, NonZeroU8,
+    NonZeroUsize,
+  },
   panic::RefUnwindSafe,
 };
 
@@ -225,14 +228,15 @@ unsafe impl GbaCellSafe for Color {}
 unsafe impl GbaCellSafe for i16 {}
 unsafe impl GbaCellSafe for i32 {}
 unsafe impl GbaCellSafe for i8 {}
-unsafe impl GbaCellSafe for KeyInput {}
 unsafe impl GbaCellSafe for KeyControl {}
+unsafe impl GbaCellSafe for KeyInput {}
 unsafe impl GbaCellSafe for NonZeroI16 {}
 unsafe impl GbaCellSafe for NonZeroI32 {}
 unsafe impl GbaCellSafe for NonZeroI8 {}
 unsafe impl GbaCellSafe for NonZeroU16 {}
 unsafe impl GbaCellSafe for NonZeroU32 {}
 unsafe impl GbaCellSafe for NonZeroU8 {}
+unsafe impl GbaCellSafe for NonZeroUsize {}
 unsafe impl GbaCellSafe for Option<bool> {}
 unsafe impl GbaCellSafe for Option<char> {}
 unsafe impl GbaCellSafe for Option<IrqFn> {}
@@ -242,7 +246,9 @@ unsafe impl GbaCellSafe for Option<NonZeroI8> {}
 unsafe impl GbaCellSafe for Option<NonZeroU16> {}
 unsafe impl GbaCellSafe for Option<NonZeroU32> {}
 unsafe impl GbaCellSafe for Option<NonZeroU8> {}
+unsafe impl GbaCellSafe for Option<NonZeroUsize> {}
 unsafe impl GbaCellSafe for u16 {}
 unsafe impl GbaCellSafe for u32 {}
 unsafe impl GbaCellSafe for u8 {}
+unsafe impl GbaCellSafe for usize {}
 unsafe impl<I: GbaCellSafe, const B: u32> GbaCellSafe for Fixed<I, B> {}
